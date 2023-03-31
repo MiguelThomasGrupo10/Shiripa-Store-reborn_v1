@@ -1,0 +1,128 @@
+*{
+    box-sizing: border-box;
+}
+
+.nav-link{
+    position: relative;
+}
+
+
+.logo{
+    width:5vh;
+}
+
+#carrusel{
+    
+    margin-top: 10vh;
+}
+
+
+.columna{
+    margin-top: 10vh;
+}
+
+.icon-texto{
+    width: 30vh;
+    justify-content: center;
+}
+
+#Presentacion{
+    margin-top: 20vh;
+}
+#servicios{
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+}
+
+.encabezado-tienda{
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+    background-color:#4d8bee;
+    border-radius: 5vh;
+    padding-top: 5vh;
+    
+}
+
+footer{
+    margin-top: 5vh;
+}
+
+.contacto{
+    height: 70vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding-bottom: 10vh;
+    background-image: url(../IMG/Fondo_Shiripa.png);
+}
+
+.formulario{
+    height: min-content;
+}
+
+.textobtn{
+    font-size: large;
+    
+}
+
+.construccion{
+    width: 100vh;
+}
+
+.sesion{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+
+}
+
+.cuenta{
+    background-image: url(../IMG/Fondo_Shiripa.png);
+}
+
+
+
+
+/** Responsive design css **/
+
+@media only screen and (max-width: 912px){
+    #boton{
+        width: 20vh;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    #boton{
+        width: 20vh;
+    }
+
+    #carrusel{
+        width: 100vh;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    #boton{
+        width: 50vh;
+    }
+
+    #carrusel{
+        width: 100vh;
+    }
+
+    
+}
+
+@media only screen and (max-width: 280px){
+    #boton{
+        width: 20vh;
+        font-size: small;
+    }
+}
+
+@media only screen and (max-width: 260px){
+    #boton{
+        width: 6vh;
+        font-size: xx-small;
+    }
+}
