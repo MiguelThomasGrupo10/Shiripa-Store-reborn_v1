@@ -44,7 +44,7 @@
 }
 
 footer{
-    margin-top: 5vh;
+    margin-top: 20vh;
 }
 
 .contacto{
@@ -76,11 +76,37 @@ footer{
 
 }
 
-.cuenta{
+/** micuenta.html formulario **/
+/** micuenta.html formulario **/
+#contenedorFormLogin{
+    margin: 20%;
+
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #4d8bee;
+    border-style: groove;
+}
+.formEstilo{
+    align-items: center;
+    justify-content: center;
+}
+#formhtml{
+    
+    background-color: rgb(43, 149, 241);
+    text-align:center;
+    border:2px dotted #f2f0f0; 
+}
+#fondoBody{
     background-image: url(../IMG/Fondo_Shiripa.png);
+    background-position: center;
 }
 
-
+#btn:hover {
+    background-color: #3c4245;
+    color:#dfcdc3;
+}
 
 
 /** Responsive design css **/
