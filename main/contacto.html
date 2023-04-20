@@ -52,7 +52,7 @@
         <section class="contacto section-padding">
           <div class="container">
             <div class="full-width d-flex justify-content-center and align-item-center sesion text-white">
-                <form class="rounded p-4 p-sm-3 shadow text-white ">
+                <for class="rounded p-4 p-sm-3 shadow text-white ">
                   <div>
                       <h4 class="display-4">
                           Formulario de Contacto
@@ -65,13 +65,36 @@
                   
                     <label id="FM2" class="form-label"></label>
                     <input type="email" class="form-control" placeholder="Email">
-                  
-                  
-                    <label id="FM3" class="form-label"></label>
-                    <input type="text" class="form-control" placeholder="Razon para contactarte" aria-label="Razon">
-                    <div class="form-text text-white">Intenta resumir el contenido lo maximo posible.</div>
+                    
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Seleccione motivo</option>
+                      <option value="1">Trabajo</option>
+                      <option value="2">Asesoria</option>
+                      <option value="3">Consulta</option>
+                    </select>
 
-                    <button type="submit" class="btn btn-primary w-100 textobtn">Enviar</button>
+                    <div class="input-group mb-3">
+                      <input type="file" class="form-control" id="inputGroupFile02">
+                      <label class="input-group-text" for="inputGroupFile02">Subir</label>
+                    </div>
+                    
+                      <label id="FM3" class="form-label"></label>
+                      <input type="text" class="form-control" placeholder="Razon para contactarte" aria-label="Razon">
+                      <div class="form-text text-white">Intenta resumir el contenido lo maximo posible.</div>
+                      <!--
+                      <div class="input-group">
+                        <span class="input-group-text">With textarea</span>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                      </div>
+                      -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Deseo recibir informaciónes y boletín.
+                        </label>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary w-100 textobtn">Enviar</button>
                   
                   </form>
                 </div>
