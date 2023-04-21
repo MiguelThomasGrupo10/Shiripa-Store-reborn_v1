@@ -47,11 +47,8 @@ footer{
     margin-top: 20vh;
 }
 
-.contacto{
-    height: 70vh;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    padding-bottom: 10vh;
+.imagendefondo{
+
     background-image: url(../IMG/Fondo_Shiripa.png);
 }
 
@@ -96,10 +93,6 @@ footer{
     background-color: rgb(43, 149, 241);
     text-align:center;
     border:2px dotted #f2f0f0; 
-}
-#fondoBody{
-    background-image: url(../IMG/Fondo_Shiripa.png);
-    background-position: center;
 }
 
 #btn:hover {
