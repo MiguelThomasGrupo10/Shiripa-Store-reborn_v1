@@ -1,71 +1,72 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-.nav-link{
+.nav-link {
     position: relative;
 }
 
 
-.logo{
-    width:5vh;
+.logo {
+    width: 5vh;
 }
 
-#carrusel{
-    
+#carrusel {
+
     margin-top: 10vh;
 }
 
 
-.columna{
+.columna {
     margin-top: 10vh;
 }
 
-.icon-texto{
+.icon-texto {
     width: 30vh;
     justify-content: center;
 }
 
-#Presentacion{
+#Presentacion {
     margin-top: 20vh;
 }
-#servicios{
+
+#servicios {
     margin-top: 20vh;
     margin-bottom: 20vh;
 }
 
-.encabezado-tienda{
+.encabezado-tienda {
     margin-top: 10vh;
     margin-bottom: 20vh;
-    background-color:#4d8bee;
+    background-color: #4d8bee;
     border-radius: 5vh;
     padding-top: 5vh;
-    
+
 }
 
-footer{
+footer {
     margin-top: 20vh;
 }
 
-.imagendefondo{
+.imagendefondo {
 
     background-image: url(../IMG/Fondo_Shiripa.png);
 }
 
-.formulario{
+.formulario {
     height: min-content;
 }
 
-.textobtn{
+.textobtn {
     font-size: large;
-    
+
 }
 
-.construccion{
+.construccion {
     width: 100vh;
 }
 
-.sesion{
+.sesion {
     margin-top: 5vh;
     margin-bottom: 5vh;
     padding-top: 20vh;
@@ -75,7 +76,7 @@ footer{
 
 /** micuenta.html formulario **/
 /** micuenta.html formulario **/
-#contenedorFormLogin{
+#contenedorFormLogin {
     margin: 20%;
     align-items: center;
     justify-content: center;
@@ -88,59 +89,113 @@ footer{
     border-style: groove;
 }
 
-#formhtml{
-    
+#formhtml {
+
     background-color: rgb(43, 149, 241);
-    text-align:center;
-    border:2px dotted #f2f0f0; 
+    text-align: center;
+    border: 2px dotted #f2f0f0;
 }
 
 #btn:hover {
     background-color: #3c4245;
-    color:#dfcdc3;
+    color: #dfcdc3;
 }
+
+
+/**contacto.html form**/
+
+
+.requerido::after {
+    content: "*";
+    color: #ff0000;
+}
+
+
+.contactoform {
+
+    border-radius: 1vh;
+
+}
+
+
+#infocontacto {
+    background-color: #ffff;
+    border-radius: 1vh;
+    margin-top: 1vh;
+    color: #000000;
+    font-size: large;
+    box-sizing: none;
+    opacity: .8;
+
+}
+
 
 
 /** Responsive design css **/
 
-@media only screen and (max-width: 912px){
-    .boton{
+@media only screen and (max-width: 912px) {
+    .boton {
         width: 20vh;
+    }
+    .contactoform{
+        width: 85vh;
     }
 }
 
-@media only screen and (min-width: 1400px){
-    .boton{
+@media only screen and (min-width: 1400px) {
+    .boton {
         width: 20vh;
     }
 
-    #carrusel{
+    #carrusel {
         width: 100vh;
     }
 }
 
-@media only screen and (min-width: 1024px){
-    .boton{
+@media only screen and (min-width: 1024px) {
+    .boton {
         width: 50vh;
     }
 
-    #carrusel{
+    #carrusel {
         width: 100vh;
     }
 
-    
+
 }
 
-@media only screen and (max-width: 280px){
-    .boton{
+@media only screen and (max-width: 280px) {
+    .boton {
         width: 20vh;
         font-size: small;
     }
+    .contactoform{
+        width: 10vh;
+    }
 }
 
-@media only screen and (max-width: 260px){
-    .boton{
+@media only screen and (max-width: 260px) {
+    .boton {
         width: 6vh;
         font-size: xx-small;
     }
+    .contactoform{
+        width: 10vh;
+    }
 }
+
+
+@media only screen and (max-width: 747px) {
+
+    .contactoform{
+        width: 50vh;
+    }
+}
+
+@media only screen and (max-width: 595px) {
+    .contactoform{
+        width: 30vh;
+    }
+}
+
+
