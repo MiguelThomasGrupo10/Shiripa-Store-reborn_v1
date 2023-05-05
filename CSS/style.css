@@ -76,6 +76,7 @@ footer {
 
 /** micuenta.html formulario **/
 /** micuenta.html formulario **/
+<<<<<<< HEAD
 #formhtml {
     text-align: center;
     width: 400px;
@@ -100,6 +101,30 @@ footer {
 
 #btn:hover {
     background-color: green;
+=======
+#contenedorFormLogin {
+    margin: 20%;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #4d8bee;
+    border-style: groove;
+}
+
+#formhtml {
+
+    background-color: rgb(43, 149, 241);
+    text-align: center;
+    border: 2px dotted #f2f0f0;
+}
+
+#btn:hover {
+    background-color: #3c4245;
+>>>>>>> master
     color: #dfcdc3;
 }
 .formControles{
@@ -175,11 +200,43 @@ footer {
 
 
 
+/**contacto.html form**/
+
+
+.requerido::after {
+    content: "*";
+    color: #ff0000;
+}
+
+
+.contactoform {
+
+    border-radius: 1vh;
+
+}
+
+
+#infocontacto {
+    background-color: #ffff;
+    border-radius: 1vh;
+    margin-top: 1vh;
+    color: #000000;
+    font-size: large;
+    box-sizing: none;
+    opacity: .8;
+
+}
+
+
+
 /** Responsive design css **/
 
 @media only screen and (max-width: 912px) {
     .boton {
         width: 20vh;
+    }
+    .contactoform{
+        width: 85vh;
     }
 }
 
@@ -210,6 +267,9 @@ footer {
         width: 20vh;
         font-size: small;
     }
+    .contactoform{
+        width: 10vh;
+    }
 }
 
 @media only screen and (max-width: 260px) {
@@ -217,4 +277,23 @@ footer {
         width: 6vh;
         font-size: xx-small;
     }
+    .contactoform{
+        width: 10vh;
+    }
 }
+
+
+@media only screen and (max-width: 747px) {
+
+    .contactoform{
+        width: 50vh;
+    }
+}
+
+@media only screen and (max-width: 595px) {
+    .contactoform{
+        width: 30vh;
+    }
+}
+
+
