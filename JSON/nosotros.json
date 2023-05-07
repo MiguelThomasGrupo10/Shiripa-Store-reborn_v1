@@ -1,0 +1,24 @@
+{
+    "Empresas":[
+        {   "idEmpresa": "100",
+            "nombre": "Steam",
+            "descripcion": "Plataforma de distribucion digital de videojuegos",
+            "annoColaboracion": "06/03/2023"
+        },
+        {   "idEmpresa": "101",
+            "nombre": "Epic Games",
+            "descripcion": "Empresa desarrolladora de videojuegos",
+            "annoColaboracion": "06/03/2023"
+        },
+        {   "idEmpresa": "102",
+            "nombre": "Ubisoft",
+            "descripcion": "Empresa desarrolladora de videojuegos",
+            "annoColaboracion": "06/03/2023"
+        },
+        {   "idEmpresa": "103",
+            "nombre": "Google",
+            "descripcion": "Empresa especializada en productos y servicios con internet",
+            "annoColaboracion": "06/03/2023"
+        }
+    ]
+}
