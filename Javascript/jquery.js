@@ -21,17 +21,15 @@ $(document).ready(function(){
 });
 
 
-//INTEGRACIÓN DE API RESCATANDO INFORMACIÓN
-//INTEGRACIÓN DE API RESCATANDO INFORMACIÓN
-//NOTA: este jquery fue sacado de apiComidas ejercicio YARAVI
+//Integracion de API
 $(document).ready(function(){
     $("#enviar").click(function(){
-        $.get("https://nosotros-ce6c2-default-rtdb.firebaseio.com/Empresas.json",
+        $.get("https://my-json-server.typicode.com/MiguelThomasGrupo10/Shiripa-Store-reborn_v1/db",
         function(data){
             $.each(data.Empresas, function(i,item){
-                $("#categorias").append("<tr><td>"+item.idCategory+"</td><td>"+
-                item.strCategory + "</td><td><img src='" + item.strCategoryThumb + "'></td><td>" +
-                item.strCategoryDescription + "</td></tr>");
+                $("#Empresas").append("<tr><td>"+item.annoColaboracion+"</td><td>"+
+                item.descripcion + "</td><td>" + item.idEmpresa+ "</td><td>" +
+                item.nombre + "</td></tr>");
             });
         });
     });
