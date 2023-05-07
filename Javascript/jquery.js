@@ -27,9 +27,9 @@ $(document).ready(function(){
         $.get("https://my-json-server.typicode.com/MiguelThomasGrupo10/Shiripa-Store-reborn_v1/db",
         function(data){
             $.each(data.Empresas, function(i,item){
-                $("#Empresas").append("<tr><td>"+item.annoColaboracion+"</td><td>"+
-                item.descripcion + "</td><td>" + item.idEmpresa+ "</td><td>" +
-                item.nombre + "</td></tr>");
+                $("#Empresas").append("<tr><td>"+item.idEmpresa+"</td><td>"+
+                item.nombre + "</td><td>" + item.annoColaboracion+ "</td><td>" +
+                item.descripcion + "</td></tr>");
             });
         });
     });
