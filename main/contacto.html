@@ -67,7 +67,7 @@
                     
                       <div class="col-md-11">
                         <select name="seleccion" class="form-select mt-1 requerido" aria-label="Seleccionar">
-                          <option value="">Elige una opcion</option>
+                          <option selected="Elige una opcion" value="" disabled>Elige una opcion</option>
                           <option value="1">Reclamos</option>
                           <option value="2">Trabajo</option>
                           <option value="3">Consulta</option>
@@ -81,9 +81,9 @@
                     
                       <div class="col-md-11">
                         <label for="textarea" class="form-label requerido">Razon</label>
-                        <textarea class="form-control" name="textcontact" id="textareacontacto" rows="3"
-                          placeholder="Razon para contactarte (max.500)"></textarea>
+                        <textarea class="form-control" name="textoarea" id="textareacontacto" rows="3" placeholder="Razon para contactarte (max.500)" minlength="10"></textarea>
                       </div>
+
                       <div class="col-md-11 text-center">
                         <button type="submit" id="enviarform" class="btn btn-primary fs-4">Enviar</button>
                       </div>

@@ -1,13 +1,17 @@
 $(document).ready(function(){
     $("#form-contacto").validate({
+        ignore:[],
+        debug:false,
         rules:{
             email:{required: true, email: true},
             seleccion:{required: true},
-            textcontact:{required: true, minlenght: 10, maxlenght:500},
+            textoarea:{required: true},
         },
         messages:{
-            email: "El campo es obligatorio.",
-            textcontact: "Debe contener menos de 500 letras.",
+            email: "Se requiere completar este campo.",
+            textoarea:{
+                required:"Se requiere completar este campo.",
+            },
             seleccion: "Debes elegir una opcion."
         }
     });
