@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Alumno,Genero
 
 # Create your views here.
 TEMPLATE_DIRS = (
