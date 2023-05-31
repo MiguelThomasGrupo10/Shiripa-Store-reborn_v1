@@ -1,11 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Inventario
-
+from .models import Usuarios
 # Create your views here.
-TEMPLATE_DIRS = (
-    'os.path.join(BASE_DIR, "templates"),'
-)
 
 def index(request):
     return render(request, "venta/index.html")

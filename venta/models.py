@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+"""
 class Genero(models.Model):
     id_genero  = models.AutoField(db_column='idGenero', primary_key=True) 
     genero     = models.CharField(max_length=20, blank=False, null=False)
@@ -22,4 +23,21 @@ class Alumno(models.Model):
 
     def __str__(self):
         return str(self.nombre)+" "+str(self.apellido_paterno)   
+"""    
+#Modelo de la tabla VENTA
+class Inventario(models.Model):
+    DISPONIBILIDAD_CHOICES = (
+        ('disponible', 'Disponible'),
+        ('no_disponible', 'No disponible'),
+    )
     
+    Id_juego         = models.CharField(primary_key=True, max_length=100)
+    categoria        = models.CharField(max_length=20)
+    plataforma       = models.CharField(max_length=20)
+    nombre_juego     = models.CharField(max_length=30) 
+    valor            = models.DecimalField(max_digits=8, decimal_places=2)  
+    stock            = models.IntegerField(default=100)  
+    disponible       = models.CharField(max_length=20, choices=DISPONIBILIDAD_CHOICES)
+
+    def __str__(self):
+        return str(self.nombre_juego)+" "+str(self.plataforma) 
