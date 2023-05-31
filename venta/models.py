@@ -31,7 +31,7 @@ class Inventario(models.Model):
         ('no_disponible', 'No disponible'),
     )
     
-    Id_juego         = models.CharField(primary_key=True, max_length=100)
+    Id_juego         = models.BigAutoField(primary_key=True)
     categoria        = models.CharField(max_length=20)
     plataforma       = models.CharField(max_length=20)
     nombre_juego     = models.CharField(max_length=30) 
