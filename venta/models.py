@@ -32,7 +32,7 @@ class Inventario(models.Model):
     )
     
     Id_juego         = models.BigAutoField(primary_key=True)
-    categoria        = models.CharField(max_length=20)
+    categoria        = models.CharField(max_length=50)
     plataforma       = models.CharField(max_length=20)
     nombre_juego     = models.CharField(max_length=30) 
     valor            = models.DecimalField(max_digits=8, decimal_places=2)  
