@@ -75,8 +75,8 @@
                 <tr>
                     <td>{{tmp.categoria}}</td>
                     
-                    <td><a href="">Eliminar</a></td>
-                    <td><a href="">Modificar</a></td>
+                    <td><a href="{% url 'categorias_del' pk=tmp.Id_categoria %}">Eliminar</a></td>
+                    <td><a href="{% url 'categorias_edit' pk=tmp.Id_categoria %}">Modificar</a></td>
                 </tr>
             {% endfor %} 
         {% endif %}   
