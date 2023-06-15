@@ -52,35 +52,45 @@
         </nav>
       </div>
 
-    <button type="button">
-        <a href="{% url 'alumnoAdd' %}">Agregar</a>
-    </button>
-    <br>
-    <div id="idMensajes">
-        {% if mensaje %}
-            {{mensaje}}
-        {% endif %}
-    </div>
-    <br>
-    <table>
-        {% if alumnos %}
-            <th>Rut</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Eliminar</th>
-            <th>Modificar</th>
-            {% for tmp in  alumnos %}
-                <tr>
-                    <td>{{tmp.rut}}</td>
-                    <td>{{tmp.nombre}}</td>
-                    <td>{{tmp.apellido_paterno}}</td>
-                    <td><a href="">Eliminar</a></td>
-                    <td><a href="">Modificar</a></td>
-                </tr>
-            {% endfor %} 
-        {% endif %}   
-    </table>
-    <br>  
+      <!--CREACIÓN AGREGAR INVENTARIO-->
+      <!--CREACIÓN AGREGAR INVENTARIO-->
+
+      <h3>Agregar Inventario</h3>
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <pre>Nombre del Juego: <input type="text" name="game"> </pre>
+
+        <pre>Categoria: <select name="category">
+          {% for tmpCat in categoria %}
+            <option value="{{tmpCat.id_categoria}}">{{tmpCat.categoria}}</option>
+          {% endfor %}
+        </select>
+        </pre>
+
+        <pre>Plataforma: <select name="plataform">
+          {% for tmpPlat in plataforma %}
+            <option value="{{tmpPlat.id_plataforma}}">{{tmpPlat.plataforma}}</option>
+          {% endfor %}
+        </select>
+        </pre>
+
+        <pre>Valor: <input type="number" name="value"> </pre>
+
+        <pre>Cantidad de Licencias: <input type="number" name="cantidad"> </pre> 
+        
+        <input type="submit" value="Agregar">
+      </form>
+
+      <br><br>
+       
+      <div id="idMensajes">
+          {% if mensaje %}
+              {{mensaje}}
+          {% endif %}
+      </div>
+      <br>
+      <a href="{% url 'index' %}">Volver</a>
 
   <footer class="bg-primary text-white">
     <div class="container">

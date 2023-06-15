@@ -2,8 +2,24 @@
 import random
 import string
 from django.db import models
-# Create your models here.
+from usuarios.models import Usuarios
+
+# Tabla Categoria y Plataforma
   
+class Categoria(models.Model):
+    Id_categoria     = models.BigAutoField(primary_key=True)
+    categoria        = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return str(self.Id_categoria) 
+
+class Plataforma(models.Model):
+    Id_plataforma    = models.BigAutoField(primary_key=True)
+    plataforma       = models.CharField(max_length=50)
+
+    def __str__(self):
+        return str(self.Id_plataforma) 
+
 #Modelo de la tabla VENTA
 class Inventario(models.Model):
     DISPONIBILIDAD_CHOICES = (
@@ -22,23 +38,27 @@ class Inventario(models.Model):
     def __str__(self):
         return str(self.nombre_juego)+" "+str(self.plataforma) 
 
-#Tablas de Boleta, Categoria, Plataforma
+#FUNCION LICENCIA ALEATORIA, realiza una funcion aleatoria que utiliza después la boleta
+def generar_codigo_licencia():
+    caracteres_permitidos = string.ascii_uppercase + string.ascii_lowercase + string.digits
+    longitud_codigo = 10
+    codigo_licencia = ''.join(random.choice(caracteres_permitidos) for _ in range(longitud_codigo))
+    return codigo_licencia
 
-class Categoria(models.Model):
-    Id_categoria     = models.BigAutoField(primary_key=True)
-    categoria        = models.CharField(max_length=50)
+# Obtener el nombre y valor del juego desde el Inventario hacia Boleta
+def save(self, *args, **kwargs):
+    inventario = Inventario.objects.get(Id_juego=self.Id_inventario_id)
+    self.nombre_juego = inventario.nombre_juego
+    self.valor = inventario.valor
+    super().save(*args, **kwargs)    
     
-    def __str__(self):
-        return str(self.Id_categoria) 
+# Obtener el email desde el Usuario hacia Boleta     
+def save(self, *args, **kwargs):   
+    usuario = Usuarios.objects.get(id_usuario=self.Id_usuario_id)
+    self.email = usuario.email
+    super().save(*args, **kwargs)
 
-class Plataforma(models.Model):
-    Id_plataforma    = models.BigAutoField(primary_key=True)
-    plataforma       = models.CharField(max_length=50)
-
-    def __str__(self):
-        return str(self.Id_plataforma) 
-
-class Boleta(models.Models):
+class Boleta(models.Model):
     Id_boleta     = models.BigAutoField(primary_key=True)
     Id_usuario    = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     Id_inventario = models.ForeignKey(Inventario, on_delete=models.CASCADE)
@@ -50,23 +70,5 @@ class Boleta(models.Models):
     def __str__(self):
         return str(self.Id_boleta)
 
-    #FUNCION LICENCIA ALEATORIA, realiza una funcion aleatoria que utiliza después la boleta
-    def generar_codigo_licencia():
-        caracteres_permitidos = string.ascii_uppercase + string.ascii_lowercase + string.digits
-        longitud_codigo = 10
-        codigo_licencia = ''.join(random.choice(caracteres_permitidos) for _ in range(longitud_codigo))
-        return codigo_licencia
+    
 
-    # Obtener el nombre y valor del juego desde el Inventario hacia Boleta
-    def save(self, *args, **kwargs):
-        inventario = Inventario.objects.get(Id_juego=self.Id_inventario_id)
-        self.nombre_juego = inventario.nombre_juego
-        self.valor = inventario.valor
-        super().save(*args, **kwargs)    
-    
-    # Obtener el email desde el Usuario hacia Boleta     
-    
-    def save(self, *args, **kwargs):   
-        usuario = Usuarios.objects.get(id_usuario=self.Id_usuario_id)
-        self.email = usuario.email
-        super().save(*args, **kwargs)
