@@ -59,8 +59,7 @@ def agregar_inventario(request):
             id_categoria = objCategoria,
             nombre_juego = nombre_juego,
             valor = valor,
-            stock = licencias,
-            disponible = 1)
+            stock = licencias)
         objInventario.save()
         lista_categoria = Categoria.objects.all()
         context = {"mensaje":"Se guardó inventario","categoria":lista_categoria}
