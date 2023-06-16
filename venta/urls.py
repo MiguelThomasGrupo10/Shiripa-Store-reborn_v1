@@ -23,6 +23,12 @@ urlpatterns = [
     path('borrar_categorias/<str:pk>',views.borrar_categorias,name='categorias_del'),
     path('actualizar_categorias/<str:pk>',views.actualizar_categoria,name='categorias_edit'),
 
+    path('listar_inventario', views.lista_inventario,name='crud_inventario'),
+    path('agregar_inventario', views.agregar_inventario,name='inventarioAdd'),
+
+
+
+
 
 
 ]
