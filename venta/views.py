@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Plataforma, Categoria
+from .models import Plataforma, Categoria, Inventario
 from .forms import PlataformaForm, CategoriaForm
 
 # Create your views here.
@@ -28,6 +28,55 @@ def micuenta(request):
 
 def tienda(request):
     return render(request, "venta/tienda.html")
+
+
+
+#Listar inventario
+def lista_inventario(request):
+    lista_inventario = Inventario.objects.raw("SELECT * FROM venta_inventario")
+    context = {"inventario":lista_inventario}
+    return render(request,'venta/inventario/inventario_list.html',context)
+
+
+#agregar inventario
+def agregar_inventario(request):
+    if request.method != "POST":
+        lista_categorias = Categoria.objects.all()
+        lista_plataformas = Plataforma.objects.all()
+        context={"categorias":lista_categorias, "plataformas":lista_plataformas}
+        return render(request,'venta/inventario/inventario_add.html',context)
+    else:
+        #rescatamos en variables os valores del formulario (name)
+        categoria = request.POST["categoria"]
+        plataforma = request.POST["plataforma"]
+        nombre_juego = request.POST["nombre_juego"]
+        valor = request.POST["valor"]
+        stock = request.POST["stock"]
+
+        objCategoria = Categoria.objects.get(Id_categoria = categoria)
+        objPlataforma = Plataforma.objects.get(Id_plataforma = plataforma)
+
+        objInventario = Inventario.objects.create(  
+            Id_categoria     = objCategoria,
+            Id_plataforma    = objPlataforma,
+            nombre_juego     = nombre_juego,
+            valor            = valor,
+            stock            = stock,)
+        
+        objInventario.save() #insert en la base de datos
+        lista_categorias = Categoria.objects.all()
+        lista_plataformas = Plataforma.objects.all()
+        context = {"mensaje":"Se guardó el juego al inventario","plataforma":lista_plataformas, "categoria":lista_categorias}
+        return render(request,'venta/inventario/inventario_add.html',context)
+
+
+#eliminar inventario
+
+
+
+#modificar inventario
+
+
 
 
 
