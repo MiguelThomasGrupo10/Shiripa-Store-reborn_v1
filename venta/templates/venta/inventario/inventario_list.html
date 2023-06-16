@@ -54,6 +54,16 @@
 
       <h3>Inventario</h3>
       <br>
+      <button type="button">
+          <a href="{% url 'inventarioAdd' %}">Agregar</a>
+      </button>
+      <br>
+      <div id="idMensajes">
+          {% if mensaje %}
+              {{mensaje}}
+          {% endif %}
+      </div>
+      <br>
       <table>
         {% if inventario %}
             <th>Nombre del juego</th>
@@ -62,14 +72,29 @@
             <th>Valor</th>
             <th>Licencias</th>
             <th>Disponible</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+            {% for tmp in inventario %}
+              <tr>
+                <td>{{tmp.nombre_juego}}</td>
+                <td>{{tmp.categoria}}</td>
+                <td>{{tmp.plataforma}}</td>
+                <td>{{tmp.valor}}</td>
+                <td>{{tmp.stock}}</td>
+                <td>{{tmp.disponible}}</td>
 
+                <td><a href="{% url 'inventario_del' pk= %}">Eliminar</a></td>
+                <td><a href="{% url 'inventario_findEdit' pk=  %}">Modificar</a></td>
+              </tr>
+              {% endfor %}
+            {% endif %}
       </table>
+      <br>
+      <br>
 
-
-
-
-
-
+      <a href="{% url '' %}">Lista_plataforma</a>
+      <br>
+      <a href="{% url '' % }">Lista_categoria</a>
 
 
       <footer class="bg-primary text-white">
