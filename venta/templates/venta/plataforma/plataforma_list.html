@@ -76,7 +76,7 @@
                     <td>{{tmp.plataforma}}</td>
                     
                     <td><a href="{% url 'plataformas_del' pk=tmp.Id_plataforma %}">Eliminar</a></td>
-                    <td><a href="">Modificar</a></td>
+                    <td><a href="{% url 'plataformas_edit' pk=tmp.Id_plataforma %}">Modificar</a></td>
                 </tr>
             {% endfor %} 
         {% endif %}   
