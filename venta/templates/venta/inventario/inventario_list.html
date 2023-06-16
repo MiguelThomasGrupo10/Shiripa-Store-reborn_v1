@@ -83,8 +83,8 @@
                 <td>{{tmp.stock}}</td>
                 <td>{{tmp.disponible}}</td>
 
-                <td><a href="{% url 'inventario_del' pk= %}">Eliminar</a></td>
-                <td><a href="{% url 'inventario_findEdit' pk=  %}">Modificar</a></td>
+                <td><a href="{url 'inventario_del' pk=tmp.Id_juego}">Eliminar</a></td>
+                <td><a href="{url 'inventario_findEdit' pk=tmp.Id_juego}">Modificar</a></td>
               </tr>
               {% endfor %}
             {% endif %}
@@ -92,9 +92,9 @@
       <br>
       <br>
 
-      <a href="{% url '' %}">Lista_plataforma</a>
+      <a href="">Lista_plataforma</a>
       <br>
-      <a href="{% url '' % }">Lista_categoria</a>
+      <a href="">Lista_categoria</a>
 
 
       <footer class="bg-primary text-white">

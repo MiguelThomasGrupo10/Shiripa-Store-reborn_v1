@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Inventario
+from .models import Inventario,Categoria,Plataforma
 
 # Create your views here.
 TEMPLATE_DIRS = (
@@ -31,39 +31,40 @@ def tienda(request):
 
 # ------------------------- INVENTARIO -------------------------------
 
-def inicio(request):
-    lista_inventario = Inventario.objects.all()
-    context = {"inventario":lista_inventario}
-    return render(request,'venta/index.html',context)
 
 def lista_inventario(request):
     lista_inventario = Inventario.objects.raw("SELECT * FROM venta_inventario")
     context = {"inventario":lista_inventario}
-    return render(request,'venta/index.html',context)
+    return render(request,'venta/inventario/inventario_list.html',context)
 
 def agregar_inventario(request):
     if request.method != "POST":
         lista_categoria = Categoria.objects.all()
-        context={"categoria":lista_categoria}
-        return render(request,'venta/inventario_add.html',context)
+        lista_plataforma = Plataforma.objects.all()
+        context={"categoria":lista_categoria,"plataforma":lista_plataforma}
+        return render(request,'venta/inventario/inventario_add.html',context)
     else:
         nombre_juego = request.POST["game"]
-        categoria = request.POST["category"]
+        categoria = request.POST["categoria"]
         plataforma = request.POST["plataforma"]
         valor = request.POST["value"]
         licencias = request.POST["cantidad"]
 
-        objCategoria = Categoria.objects.get(id_categoria = categoria)
+        objCategoria = Categoria.objects.get(Id_categoria = categoria)
+        objPlataforma = Plataforma.objects.get(Id_plataforma = plataforma)
 
         objInventario = Inventario.objects.create(
-            id_categoria = objCategoria,
+            Id_plataforma = objPlataforma,
+            Id_categoria = objCategoria,
             nombre_juego = nombre_juego,
             valor = valor,
             stock = licencias)
+            
         objInventario.save()
+        lista_plataforma = Plataforma.objects.all()
         lista_categoria = Categoria.objects.all()
-        context = {"mensaje":"Se guardó inventario","categoria":lista_categoria}
-        return render(request,'venta/inventario_add.html',context)
+        context = {"mensaje":"Se guardó el juego al inventario","categoria":lista_categoria,"plataforma":lista_plataforma}
+        return render(request,'venta/inventario/inventario_add.html',context)
 
 def eliminar_inventario(request,pk):
     context={}
@@ -74,13 +75,13 @@ def eliminar_inventario(request,pk):
         mensaje = "Se eliminó inventario"
         lista_inventario = Inventario.objects.all()
         context={"inventario":lista_inventario, "mensaje":mensaje}
-        return render(request,'venta/index.html',context)
+        return render(request,'venta/inventario/inventario_list.html',context)
     
     except:
         mensaje = "NO se elimino imventario"
         lista_inventario = Inventario.objects.all()
         context={"inventario":lista_inventario, "mensaje":mensaje}
-        return render(request,'venta/index.html',context)
+        return render(request,'venta/inventario/inventario_list.html',context)
 
 def buscar_inventario(request,pk):
     if pk != "":
@@ -88,10 +89,10 @@ def buscar_inventario(request,pk):
         lista_categoria = Categoria.objects.all()
         context={"inventario":inventario, "categoria":lista_categoria}
         if Inventario:
-            return render(request,'venta/inventario_edit.html',context)
+            return render(request,'venta/inventario/inventario_edit.html',context)
         else:
-            context = {"mensaje":"El inventario no existe"}
-            return render(request,'venta/index.html',context)
+            context = {"mensaje":"El juego no existe"}
+            return render(request,'venta/inventario/inventario_list.html',context)
 
 def actualizar_inventario(request):
     if request.method == "POST":
@@ -112,12 +113,13 @@ def actualizar_inventario(request):
         objInventario.stock = licencias
 
         objInventario.save()
+        lista_plataforma = Plataforma.objects.all()
         lista_categoria = Categoria.objects.all()
-        context = {"mensaje":"Se actualizó inventario","categoria":lista_categoria}
-        return render(request,'venta/inventario_edit.html',context)
+        context = {"mensaje":"Se actualizó inventario","categoria":lista_categoria,"plataforma":lista_plataforma}
+        return render(request,'venta/inventario/inventario_edit.html',context)
 
     else:
         lista_inventario = Inventario.objects.all()
         context = {"inventario": lista_inventario}
-        return render(request,'venta/index.html',context)
+        return render(request,'venta/inventario/inventario_list.html',context)
 

@@ -7,18 +7,18 @@ from usuarios.models import Usuarios
 # Tabla Categoria y Plataforma
   
 class Categoria(models.Model):
-    Id_categoria     = models.BigAutoField(primary_key=True)
-    categoria        = models.CharField(max_length=50)
+    Id_categoria     = models.AutoField(db_column='idCategoria', primary_key=True)
+    categoria        = models.CharField(unique = True, max_length=50)
     
     def __str__(self):
-        return str(self.Id_categoria) 
+        return str(self.categoria) 
 
 class Plataforma(models.Model):
-    Id_plataforma    = models.BigAutoField(primary_key=True)
-    plataforma       = models.CharField(max_length=50)
+    Id_plataforma    = models.AutoField(db_column='idPlataforma',primary_key=True)
+    plataforma       = models.CharField(unique = True, max_length=50)
 
     def __str__(self):
-        return str(self.Id_plataforma) 
+        return str(self.plataforma) 
 
 #Modelo de la tabla VENTA
 class Inventario(models.Model):
@@ -27,9 +27,9 @@ class Inventario(models.Model):
         ('no_disponible', 'No disponible'),
     )
     
-    Id_juego         = models.BigAutoField(primary_key=True)
-    Id_categoria     = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    Id_plataforma    = models.ForeignKey(Plataforma, on_delete=models.CASCADE)
+    Id_juego         = models.AutoField(primary_key=True)
+    Id_categoria     = models.ForeignKey('Categoria', on_delete=models.CASCADE, db_column='idCategoria')
+    Id_plataforma    = models.ForeignKey('Plataforma', on_delete=models.CASCADE, db_column='idPlataforma')
     nombre_juego     = models.CharField(max_length=30) 
     valor            = models.DecimalField(max_digits=8, decimal_places=2)  
     stock            = models.IntegerField(default=100)  

@@ -60,17 +60,19 @@
         {% csrf_token %}
 
         <pre>Nombre del Juego: <input type="text" name="game"> </pre>
+        <!--<label for="game">Ingrese nombre juego:</label> 
+        <input type="text" name="game" id="game" placeholder="nombre de juego">-->
 
-        <pre>Categoria: <select name="category">
-          {% for tmpCat in categoria %}
-            <option value="{{tmpCat.id_categoria}}">{{tmpCat.categoria}}</option>
+        <pre>Categoria: <select name="categoria">
+          {% for tmp in Categoria %}
+            <option value="{{tmp.Id_categoria}}">{{tmp.categoria}}</option>
           {% endfor %}
         </select>
         </pre>
 
-        <pre>Plataforma: <select name="plataform">
-          {% for tmpPlat in plataforma %}
-            <option value="{{tmpPlat.id_plataforma}}">{{tmpPlat.plataforma}}</option>
+        <pre>Plataforma: <select name="plataforma">
+          {% for tmp in Plataforma %}
+            <option value="{{tmp.Id_plataforma}}">{{tmp.plataforma}}</option>
           {% endfor %}
         </select>
         </pre>
@@ -90,7 +92,7 @@
           {% endif %}
       </div>
       <br>
-      <a href="{% url 'index' %}">Volver</a>
+      <a href="{% url 'lista_inventario' %}">Volver</a>
 
   <footer class="bg-primary text-white">
     <div class="container">
