@@ -52,6 +52,7 @@
         </nav>
       </div>
 
+<<<<<<< HEAD
       <!--CREACIÓN AGREGAR INVENTARIO-->
       <!--CREACIÓN AGREGAR INVENTARIO-->
 
@@ -72,10 +73,25 @@
 
         <pre>Plataforma: <select name="plataforma">
           {% for tmp in Plataforma %}
+=======
+      <h3>Agregar Inventario</h3>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <pre>Nombre del Juego: <input type="text" name="nombre_juego"> </pre>
+        <pre>Categoria: <select name="categoria">
+          {% for tmp in categorias %}
+            <option value="{{tmpCat.Id_categoria}}">{{tmp.categoria}}</option>
+          {% endfor %}
+        </select>
+        </pre>
+        <pre>Plataforma: <select name="plataforma">
+          {% for tmp in plataformas %}
+>>>>>>> origin/master
             <option value="{{tmp.Id_plataforma}}">{{tmp.plataforma}}</option>
           {% endfor %}
         </select>
         </pre>
+<<<<<<< HEAD
 
         <pre>Valor: <input type="number" name="value"> </pre>
 
@@ -86,13 +102,25 @@
 
       <br><br>
        
+=======
+        <pre>Valor: <input type="number" name="valor"> </pre>
+        <pre>Stock: <input type="number" name="stock"> </pre> 
+        <input type="submit" value="Agregar">
+      </form>
+      <br><br>
+    
+>>>>>>> origin/master
       <div id="idMensajes">
           {% if mensaje %}
               {{mensaje}}
           {% endif %}
       </div>
       <br>
+<<<<<<< HEAD
       <a href="{% url 'lista_inventario' %}">Volver</a>
+=======
+      <a href="{% url 'crud_inventario' %}">Volver</a>
+>>>>>>> origin/master
 
   <footer class="bg-primary text-white">
     <div class="container">
