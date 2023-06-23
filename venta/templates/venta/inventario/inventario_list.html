@@ -77,15 +77,15 @@
                {% for tmp in inventario %}
                   <tr>
                     <td>{{tmp.nombre_juego}}</td>
-                    <td>{{tmp.categoria}}</td>
-                    <td>{{tmp.plataforma}}</td>
+                    <td>{{tmp.Id_categoria}}</td>
+                    <td>{{tmp.Id_plataforma}}</td>
                     <td>{{tmp.valor}}</td>
                     <td>{{tmp.stock}}</td>
                     <td>{{tmp.disponible}}</td>
-
+                    
                     <td><a href="">Eliminar</a></td>
-                    <td><a href="">Modificar</a></td>
-                  </tr>
+                    <td><a href="{% url 'inventarioFindEdit' pk=tmp.Id_juego %}">Modificar</a></td>
+                    </tr>
               {% endfor %}
           {% endif %}
       </table>

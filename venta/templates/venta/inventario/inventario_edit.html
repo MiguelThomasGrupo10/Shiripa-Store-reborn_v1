@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Inventario</title>
+</head>
+<body>
+
+    {% if inventario %}
+    <h3>Actualizar Inventario</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <pre><input type="hidden" name="Id_juego" value="{{inventario.Id_juego}}"></pre>
+        <pre>Nombre del Juego: <input type="text" name="nombre_juego" value="{{inventario.nombre_juego}}"> </pre>
+        <pre>Categoria: <select name="categoria">
+                {% for tmp in categorias %}
+                  <option value="{{tmp.Id_categoria}}">{{tmp.categoria}}</option>
+                {% endfor %}
+              </select>
+              </pre>
+        <pre>Plataforma: <select name="plataforma">
+                {% for tmp in plataformas %}
+                  <option value="{{tmp.Id_plataforma}}">{{tmp.plataforma}}</option>
+                {% endfor %}
+              </select>
+              </pre>
+        <pre>Valor: <input type="number" name="valor" value="{{inventario.valor}}"> </pre>
+        <pre>Stock: <input type="number" name="stock" value="{{inventario.stock}}"> </pre>
+        <input type="submit" value="Agregar">
+    </form>
+    {% endif %}
+
+    <br><br>
+
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+    <br>
+    <a href="{% url 'index' %}">Volver</a>
+    
+</body>
+</html>

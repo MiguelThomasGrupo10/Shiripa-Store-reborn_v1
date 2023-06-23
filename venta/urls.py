@@ -25,6 +25,10 @@ urlpatterns = [
 
     path('listar_inventario', views.lista_inventario,name='crud_inventario'),
     path('agregar_inventario', views.agregar_inventario,name='inventarioAdd'),
+    path('buscar_inventario/<str:pk>', views.buscar_inventario,name='inventarioFindEdit'),
+    #path('borrar_inventario/<str:pk>', views.borrar_inventario,name='inventario_del'),
+    #path('actualizar_inventarios', views.actualizar_inventario,name='inventario_edit'),
+
 
 
 

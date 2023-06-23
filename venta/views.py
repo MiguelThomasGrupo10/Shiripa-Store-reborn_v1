@@ -34,9 +34,10 @@ def tienda(request):
 #Listar inventario
 def lista_inventario(request):
     lista_inventario = Inventario.objects.raw("SELECT * FROM venta_inventario")
-    context = {"inventario":lista_inventario}
+    lista_categorias = Categoria.objects.all()
+    lista_plataformas = Plataforma.objects.all()
+    context = {"inventario":lista_inventario, "plataformas": lista_plataformas, "categorias": lista_categorias}
     return render(request,'venta/inventario/inventario_list.html',context)
-
 
 #agregar inventario
 def agregar_inventario(request):
@@ -52,6 +53,7 @@ def agregar_inventario(request):
         nombre_juego = request.POST["nombre_juego"]
         valor = request.POST["valor"]
         stock = request.POST["stock"]
+       
 
         objCategoria = Categoria.objects.get(Id_categoria = categoria)
         objPlataforma = Plataforma.objects.get(Id_plataforma = plataforma)
@@ -61,13 +63,27 @@ def agregar_inventario(request):
             Id_plataforma    = objPlataforma,
             nombre_juego     = nombre_juego,
             valor            = valor,
-            stock            = stock,)
+            stock            = stock,
+            disponible       = "1",)
         
         objInventario.save() #insert en la base de datos
         lista_categorias = Categoria.objects.all()
         lista_plataformas = Plataforma.objects.all()
         context = {"mensaje":"Se guardó el juego al inventario","plataforma":lista_plataformas, "categoria":lista_categorias}
         return render(request,'venta/inventario/inventario_add.html',context)
+
+#Buscar Inventario (buscar objeto de inventario para modificar.)
+def buscar_inventario(request,pk):
+    if pk != "":
+        inventario = Inventario.objects.get(Id_juego=pk)
+        lista_categoria = Categoria.objects.all()
+        lista_plataforma = Plataforma.objects.all()
+        context={"inventario":inventario, "categorias":lista_categoria, "plataformas":lista_plataforma}
+        if Inventario:
+            return render(request,'venta/inventario/inventario_edit.html',context)
+        else:
+            context = {"mensaje":"El juego no existe"}
+            return render(request,'venta/inventario/inventario_list.html',context)
 
 
 #eliminar inventario
