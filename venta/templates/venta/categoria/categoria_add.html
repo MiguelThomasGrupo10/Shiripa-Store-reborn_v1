@@ -58,7 +58,7 @@
     <form action="" method="POST">
         {% csrf_token %} 
         {{form.as_table}} 
-        <input type="submit" value="Agregar">
+        <input type="submit" class="btn btn-primary" value="Agregar">
     </form>
 
     <br>
@@ -68,7 +68,7 @@
         {% endif %}
     </div>
     <br>
-    <a href="{% url 'crud_categorias' %}">Volver</a>
+    <a class="btn btn-secondary" href="{% url 'crud_categorias' %}">Volver</a>
     
 </body>
 </html>

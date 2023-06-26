@@ -87,11 +87,56 @@ def buscar_inventario(request,pk):
 
 
 #eliminar inventario
+def borrar_inventario(request,pk):
+    
+    try:
+        inventario = Inventario.objects.get(Id_juego=pk)
 
+        inventario.delete() #delete en la BD
+        mensaje = "Se eliminó el juego"
+        lista_inventario = Inventario.objects.all()
+        context={"inventario":lista_inventario, "mensaje":mensaje}
+        return render(request,'venta/inventario/inventario_list.html',context)
+    except:
+        mensaje = "NO se eliminó el juego"
+        lista_inventario = Invventario.objects.all()
+        context={"inventario":lista_inventario, "mensaje":mensaje}
+        return render(request,'venta/inventario/inventario_list.html',context)
 
 
 #modificar inventario
+def actualizar_inventario(request):
+    if request.method == "POST":
+        #rescatamos en variables los valores del formulario (name)
+        Id_juego = request.POST["Id_juego"]
+        categoria = request.POST["categoria"]
+        plataforma = request.POST["plataforma"]
+        nombre_juego = request.POST["nombre_juego"]
+        valor = request.POST["valor"]
+        stock = request.POST["stock"]
 
+        objCategoria = Categoria.objects.get(Id_categoria = categoria)
+        objPlataforma = Plataforma.objects.get(Id_plataforma = plataforma)
+
+        #crea alumno (izp:nombre del campo de la BD, derecho:variable local)
+        objInventario = Inventario()
+        objInventario.Id_juego = Id_juego
+        objInventario.Id_categoria  = objCategoria
+        objInventario.Id_plataforma = objPlataforma
+        objInventario.nombre_juego  = nombre_juego
+        objInventario.valor         = valor
+        objInventario.stock         = stock
+        objInventario.activo        = 1
+         
+        objInventario.save() #update en la base de datos
+        lista_categoria = Categoria.objects.all()
+        lista_plataforma = Plataforma.objects.all()
+        context = {"mensaje":"Se guardó el juego al inventario","plataforma":lista_plataforma, "categoria":lista_categoria}
+        return render(request,'venta/inventario/inventario_edit.html',context)
+    else:
+        lista_Inventario = Inventario.objects.all()
+        context = {"inventario":lista_Inventario}
+        return render(request,'venta/inventario/inventario_list.html',context)
 
 
 

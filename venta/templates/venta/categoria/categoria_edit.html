@@ -57,11 +57,14 @@
     <br>
     <h3>Modificar categorias</h3>
     {% if categoria %}
+    <section class="ml-3">
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_table}}
-        <input type="submit" name="opcion" value="Actualizar">
+
+        <input type="submit" class="btn btn-primary" name="opcion" value="Actualizar">
     </form>
+    </section>
     {% endif %}
     
     <br>
@@ -71,7 +74,7 @@
         {% endif %}
     </div>
     <br>
-    <a href="{% url 'crud_categorias' %}">Volver</a>
+    <a class="btn btn-secondary" href="{% url 'crud_categorias' %}">Volver</a>
     
     </body>
     

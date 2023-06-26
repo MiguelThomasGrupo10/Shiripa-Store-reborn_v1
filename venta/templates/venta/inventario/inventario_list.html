@@ -52,11 +52,9 @@
         </nav>
       </div>
 
-      <h3>Inventario</h3>
-      <br>
-      <button type="button">
-          <a href="{% url 'inventarioAdd' %}">Agregar</a>
-      </button>
+
+      <section class="container">
+
       <br>
       <div id="idMensajes">
           {% if mensaje %}
@@ -64,27 +62,34 @@
           {% endif %}
       </div>
       <br>
-      <table>
+      <table class="table table-light table-hover">
+        <h5 class="display-4">Inventario</h5>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="button" class="me-md-2 mb-3 btn btn-outline-success">
+            <a class= "text-decoration-none text-dark" href="{% url 'inventarioAdd' %}">Agregar inventario</a>
+          </button>
+        </div>
+
         {% if inventario %}
-            <th>Nombre del juego</th>
-            <th>Categoria</th>
-            <th>Plataforma</th>
-            <th>Valor</th>
-            <th>Stock</th>
-            <th>Disponible</th>
-            <th>Eliminar</th>
-            <th>Modificar</th>
+            <th scope="col">Nombre del juego</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Plataforma</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Disponible</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
                {% for tmp in inventario %}
                   <tr>
-                    <td>{{tmp.nombre_juego}}</td>
-                    <td>{{tmp.Id_categoria}}</td>
-                    <td>{{tmp.Id_plataforma}}</td>
-                    <td>{{tmp.valor}}</td>
-                    <td>{{tmp.stock}}</td>
-                    <td>{{tmp.disponible}}</td>
+                    <td class="text fs-5">{{tmp.nombre_juego}}</td>
+                    <td class="text fs-5">{{tmp.Id_categoria}}</td>
+                    <td class="text fs-5">{{tmp.Id_plataforma}}</td>
+                    <td class="text fs-5">{{tmp.valor}}</td>
+                    <td class="text fs-5">{{tmp.stock}}</td>
+                    <td class="text fs-5">{{tmp.disponible}}</td>
                     
-                    <td><a href="">Eliminar</a></td>
-                    <td><a href="{% url 'inventarioFindEdit' pk=tmp.Id_juego %}">Modificar</a></td>
+                    <td><button type="button" class="btn btn-outline-danger text-dark"><a class="text-decoration-none text-dark" href="{% url 'inventario_del' pk=tmp.Id_juego %}">Eliminar</a></button></td>
+                    <td><button type="button" class="btn btn-outline-warning text-dark"><a class="text-decoration-none text-dark" href="{% url 'inventarioFindEdit' pk=tmp.Id_juego %}">Modificar</a></button></td>
                     </tr>
               {% endfor %}
           {% endif %}
@@ -95,6 +100,8 @@
       <a href="">Lista_plataforma</a>
       <br>
       <a href="">Lista_categoria</a>
+
+      </section>
 
       <footer class="bg-primary text-white">
         <div class="container">

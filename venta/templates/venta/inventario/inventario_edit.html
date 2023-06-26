@@ -54,7 +54,7 @@
 
       {% if inventario %}
       <h3>Actualizar Inventario</h3>
-      <form action="" method="post">
+      <form action="{% url 'inventario_edit' %}" method="post">
           {% csrf_token %}
           <pre><input type="hidden" name="Id_juego" value="{{inventario.Id_juego}}"></pre>
           <pre>Nombre del Juego: <input type="text" name="nombre_juego" value="{{inventario.nombre_juego}}"> </pre>

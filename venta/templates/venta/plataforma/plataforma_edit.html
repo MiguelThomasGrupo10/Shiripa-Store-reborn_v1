@@ -57,21 +57,25 @@
     <br>
     <h3>Modificar plataformas</h3>
     {% if plataforma %}
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_table}}
-        <input type="submit" name="opcion" value="Actualizar">
-    </form>
+    <section class="ml-3">
+        <form action="" method="POST">
+          {% csrf_token %}
+          {{form.as_table}}
+          
+          <input type="submit" class="btn btn-primary" name="opcion" value="Actualizar">
+        </form>
+      </section>
     {% endif %}
     
     <br>
     <div id="idMensajes">
-        {% if mensaje %}
+      {% if mensaje %}
         {{mensaje}}
-        {% endif %}
+      {% endif %}
     </div>
     <br>
-    <a href="{% url 'crud_plataformas' %}">Volver</a>
+    <a class="btn btn-secondary" href="{% url 'crud_plataformas' %}">Volver</a>
+    
     
     </body>
     

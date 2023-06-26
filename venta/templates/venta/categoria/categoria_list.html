@@ -54,11 +54,9 @@
       <br>
       <br>
 
-    <h3>Categorias | ShiripaStore.cl</h3>
-    <br>
-    <button type="button">
-        <a href="{% url 'categoriasAdd' %}">Agregar</a>
-    </button>
+    
+    <section class="container">
+
     <br>
     <div id="idMensajes">
         {% if mensaje %}
@@ -66,17 +64,23 @@
         {% endif %}
     </div>
     <br>
-    <table>
+    <table class="table table-light table-hover">
+      <h5 class="display-4">Categorias</h5>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="me-md-2 mb-3 btn btn-outline-success">
+          <a class= "text-decoration-none text-dark" href="{% url 'categoriasAdd' %}">Agregar Categoria</a>
+        </button>
+      </div>
         {% if categorias %}
-            <th>Categorias</th>
-            <th>Eliminar</th>
-            <th>Modificar</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
             {% for tmp in categorias %}
                 <tr>
-                    <td>{{tmp.categoria}}</td>
+                    <td class="text fs-5">{{tmp.categoria}}</td>
                     
-                    <td><a href="{% url 'categorias_del' pk=tmp.Id_categoria %}">Eliminar</a></td>
-                    <td><a href="{% url 'categorias_edit' pk=tmp.Id_categoria %}">Modificar</a></td>
+                    <td> <button type="button" class="btn btn-outline-danger text-dark"><a class="text-decoration-none text-dark" href="{% url 'categorias_del' pk=tmp.Id_categoria %}">Eliminar</a></button></td>
+                    <td> <button type="button" class="btn btn-outline-warning text-dark"><a class="text-decoration-none text-dark" href="{% url 'categorias_edit' pk=tmp.Id_categoria %}">Modificar</a></button></td>
                 </tr>
             {% endfor %} 
         {% endif %}   
