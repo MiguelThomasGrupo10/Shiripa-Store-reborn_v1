@@ -55,32 +55,37 @@
       <br>
 
     <h3>Plataforma | ShiripaStore.cl</h3>
-    <br>
-    <button type="button">
-        <a href="{% url 'plataformasAdd' %}">Agregar</a>
-    </button>
-    <br>
-    <div id="idMensajes">
+    <section class="container">
+    
+      <br>
+      <div id="idMensajes">
         {% if mensaje %}
-            {{mensaje}}
+        {{mensaje}}
         {% endif %}
-    </div>
-    <br>
-    <table>
+      </div>
+      <br>
+      <table class="table table-light table-hover">
+        <h5 class="display-4">Plataformas</h5>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="button" class="me-md-2 mb-3 btn btn-outline-success">
+            <a class= "text-decoration-none text-dark" href="{% url 'plataformasAdd' %}">Agregar Plataforma</a>
+          </button>
+        </div>
         {% if plataformas %}
-            <th>Plataforma</th>
-            <th>Eliminar</th>
-            <th>Modificar</th>
-            {% for tmp in plataformas %}
-                <tr>
-                    <td>{{tmp.plataforma}}</td>
-                    
-                    <td><a href="{% url 'plataformas_del' pk=tmp.Id_plataforma %}">Eliminar</a></td>
-                    <td><a href="{% url 'plataformas_edit' pk=tmp.Id_plataforma %}">Modificar</a></td>
-                </tr>
-            {% endfor %} 
-        {% endif %}   
-    </table>
-    <br>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        {% for tmp in plataformas %}
+        <tr>
+          <td class="text fs-5">{{tmp.plataforma}}</td>
+    
+          <td> <button type="button" class="btn btn-outline-danger text-dark"><a class="text-decoration-none text-dark" href="{% url 'plataformas_del' pk=tmp.Id_plataforma %}">Eliminar</a></button></td>
+          <td><button type="button" class="btn btn-outline-warning text-dark"><a class="text-decoration-none text-dark" href="{% url 'plataformas_edit' pk=tmp.Id_plataforma %}">Modificar</a></button></td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+      </table>
+      <br>
+    </section>
 </body>
 </html>

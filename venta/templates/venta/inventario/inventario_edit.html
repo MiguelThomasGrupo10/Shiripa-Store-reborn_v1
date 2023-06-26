@@ -52,51 +52,39 @@
         </nav>
       </div>
 
-    {% if inventario %}
-    <h3>Actualizar Inventario</h3>
-    <form action="{% url 'actualizar_inventario' %}" method="post">
-        {% csrf_token %}
-
-        <pre>Nombre del Juego: <input type="text" name="game" value="{{inventario.nombre_juego}}"></pre>
-
-        <pre>Categoria: <select name="category">
-            {% for tmpCat in categoria %}
-                {% if tmp.categoria == categoria.id_categoria %}
-                    <option value="{{tmp.id_categoria}}" selected>{{tmp.categoria}}</option>
-                {% else %}
-                <option value="{{tmp.id_categoria}}">{{tmp.categoria}}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
-        </pre>    
-
-        <pre>Plataforma: <select name="plataform">
-            {% for tmpPlat in plataforma %}
-                {% if tmp.plataforma == plataforma.id_plataforma %}
-                    <option value="{{tmp.id_plataforma}}" selected>{{tmp.plataforma}}</option>
-                {% else %}
-                <option value="{{tmp.id_plataforma}}">{{tmp.plataforma}}</option>
-                {% endif%}
-            {% endfor %}
-        </select>
-        </pre>
-
-        <pre>Valor: <input type="number" name="value" value="{{inventario.valor}}"> </pre>
-
-        <pre>Cantidad de Licencias: <input type="number" name="cantidad" value="{{inventario.stock}}"> </pre> 
-        <input type="submit" value="Actualizar">
-    </form>
-    {% endif %}
-
-    <br><br>
-    
-    <div id="idMensajes">
-        {% if mensaje %}
-            {{mensaje}}
-        {% endif %}
-    </div>
-    <br>
-    <a href="{% url 'index' %}">Volver</a>
+      {% if inventario %}
+      <h3>Actualizar Inventario</h3>
+      <form action="" method="post">
+          {% csrf_token %}
+          <pre><input type="hidden" name="Id_juego" value="{{inventario.Id_juego}}"></pre>
+          <pre>Nombre del Juego: <input type="text" name="nombre_juego" value="{{inventario.nombre_juego}}"> </pre>
+          <pre>Categoria: <select name="categoria">
+                  {% for tmp in categorias %}
+                    <option value="{{tmp.Id_categoria}}">{{tmp.categoria}}</option>
+                  {% endfor %}
+                </select>
+                </pre>
+          <pre>Plataforma: <select name="plataforma">
+                  {% for tmp in plataformas %}
+                    <option value="{{tmp.Id_plataforma}}">{{tmp.plataforma}}</option>
+                  {% endfor %}
+                </select>
+                </pre>
+          <pre>Valor: <input type="number" name="valor" value="{{inventario.valor}}"> </pre>
+          <pre>Stock: <input type="number" name="stock" value="{{inventario.stock}}"> </pre>
+          <input type="submit" value="Agregar">
+      </form>
+      {% endif %}
+  
+      <br><br>
+  
+      <div id="idMensajes">
+          {% if mensaje %}
+              {{mensaje}}
+          {% endif %}
+      </div>
+      <br>
+      <a href="{% url 'index' %}">Volver</a>
 
 
       <footer class="bg-primary text-white">

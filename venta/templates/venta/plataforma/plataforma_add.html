@@ -54,21 +54,21 @@
       <br>
       <br>
 
-    <h3>Agregar plataforma</h3>
-    <form action="" method="POST">
-        {% csrf_token %} 
-        {{form.as_table}} 
-        <input type="submit" value="Agregar">
-    </form>
-
-    <br>
-    <div id="idMensajes">
-        {% if mensaje %}
-            {{mensaje}}
-        {% endif %}
-    </div>
-    <br>
-    <a href="{% url 'crud_plataformas' %}">Volver</a>
-    
+      <h3>Agregar plataforma</h3>
+      <section class="ml-3">
+        <form action="" method="POST">
+          {% csrf_token %}
+          {{form.as_table}}
+          <input type="submit" value="Agregar">
+        </form>
+      </section>
+      <br>
+      <div id="idMensajes">
+          {% if mensaje %}
+              {{mensaje}}
+          {% endif %}
+      </div>
+      <br>
+      <a href="{% url 'crud_plataformas' %}">Volver</a>
 </body>
 </html>
