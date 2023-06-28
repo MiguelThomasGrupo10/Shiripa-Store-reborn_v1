@@ -29,7 +29,7 @@ urlpatterns = [
     path('borrar_inventario/<str:pk>', views.borrar_inventario,name='inventario_del'),
     path('actualizar_inventarios', views.actualizar_inventario,name='inventario_edit'),
 
-
+    #path("accounts/", include("django.contrib.auth.urls")),
 
 
 

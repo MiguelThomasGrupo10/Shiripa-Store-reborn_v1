@@ -18,18 +18,26 @@ def carrito(request):
     return render(request, "venta/carrito.html")
 
 def contacto(request):
-    return render(request, "usuarios/contacto.html")
+    return render(request, "venta/login/contacto.html")
 
 def formRegistro(request):
-    return render(request, "usuarios/formRegistro.html")
+    return render(request, "venta/login/formRegistro.html")
 
 def micuenta(request):
-    return render(request, "usuarios/micuenta.html")
+    return render(request, "venta/login/micuenta.html")
 
 def tienda(request):
     return render(request, "venta/tienda.html")
 
+# def menu(request):
+#     request.session["usuario"]="mleiva"
+#     lista_inventario = Inventario.objects.all()
+#     lista_categorias = Categoria.objects.all()
+#     lista_plataforma = Plataforma.objects.all()
+#     usuario=request.session["usuario"]
 
+#     context = {"inventario":lista_inventario,"usu":usuario}
+#     return render(request, 'venta/inventario/inventario_list.html',context)
 
 #Listar inventario
 def lista_inventario(request):
